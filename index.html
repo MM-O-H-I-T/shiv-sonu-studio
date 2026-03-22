@@ -419,7 +419,46 @@
         .faq-box { max-width: 800px; margin: auto; }
         .faq-box details { background: #f8fafc; padding: 15px 20px; margin-bottom: 12px; border-radius: 10px; border: 1px solid #e2e8f0; }
         .faq-box summary { font-weight: 600; font-size: 16px; cursor: pointer; outline: none; display: flex; justify-content: space-between; align-items: center; }
+.section-padding {
+    padding: 60px 20px;
+}
 
+.center-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.faq-box {
+    max-width: 800px;
+    margin: auto;
+}
+
+.faq-box details {
+    background: #f8fafc;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    transition: 0.3s;
+}
+
+.faq-box details[open] {
+    background: #eef2ff;
+}
+
+.faq-box summary {
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+}
+
+.faq-box p {
+    padding-top: 10px;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.6;
+}
         /* --- DELIVERY BANNER --- */
         .delivery-banner {
             background: var(--primary); color: white;
