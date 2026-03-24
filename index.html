@@ -67,8 +67,10 @@
             scroll-behavior: smooth;
         }
 
-        html, body {
-            overflow-x: hidden; /* Prevent horizontal scroll */
+        html,
+        body {
+            overflow-x: hidden;
+            /* Prevent horizontal scroll */
             width: 100%;
             position: relative;
         }
@@ -82,7 +84,11 @@
             height: auto;
         }
 
-        h1, h2, h3, h4, .logo {
+        h1,
+        h2,
+        h3,
+        h4,
+        .logo {
             font-family: 'Poppins', sans-serif;
             text-transform: uppercase;
             letter-spacing: -0.5px;
@@ -92,69 +98,171 @@
         /* --- PRE-LOADER (No Change) --- */
         #loader {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: var(--primary);
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             z-index: 99999;
             transition: opacity 0.8s ease-in-out, visibility 0.8s;
         }
 
-        .loader-icons { height: 80px; position: relative; width: 80px; }
-        .loader-icons i {
-            font-size: 50px; color: var(--white);
-            position: absolute; left: 50%; transform: translateX(-50%);
-            opacity: 0; animation: iconCycle 3s infinite;
+        .loader-icons {
+            height: 80px;
+            position: relative;
+            width: 80px;
         }
-        .loader-icons i:nth-child(2) { animation-delay: 1s; }
-        .loader-icons i:nth-child(3) { animation-delay: 2s; }
+
+        .loader-icons i {
+            font-size: 50px;
+            color: var(--white);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            animation: iconCycle 3s infinite;
+        }
+
+        .loader-icons i:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        .loader-icons i:nth-child(3) {
+            animation-delay: 2s;
+        }
 
         @keyframes iconCycle {
-            0%, 100% { opacity: 0; transform: translateX(-50%) translateY(20px); }
-            10%, 30% { opacity: 1; transform: translateX(-50%) translateY(0); }
-            40% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+
+            0%,
+            100% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(20px);
+            }
+
+            10%,
+            30% {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+
+            40% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(-20px);
+            }
         }
 
         .loader-text {
-            color: var(--white); margin-top: 20px;
-            font-weight: 700; letter-spacing: 3px;
-            font-size: 14px; text-transform: uppercase; text-align: center;
+            color: var(--white);
+            margin-top: 20px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            font-size: 14px;
+            text-transform: uppercase;
+            text-align: center;
         }
 
-        .loader-bar { width: 200px; height: 2px; background: rgba(255, 255, 255, 0.1); margin-top: 15px; position: relative; overflow: hidden; }
-        .loader-progress { position: absolute; left: 0; top: 0; height: 100%; width: 0%; background: var(--accent); animation: progressFill 3s forwards; }
-        @keyframes progressFill { 100% { width: 100%; } }
+        .loader-bar {
+            width: 200px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            margin-top: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loader-progress {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0%;
+            background: var(--accent);
+            animation: progressFill 3s forwards;
+        }
+
+        @keyframes progressFill {
+            100% {
+                width: 100%;
+            }
+        }
 
         /* --- HEADER & NAV (Responsive) --- */
         header {
             position: fixed;
-            top: 0; width: 100%; height: 80px;
+            top: 0;
+            width: 100%;
+            height: 80px;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            display: flex; justify-content: space-between;
-            align-items: center; padding: 0 5%;
-            z-index: 1000; border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
         }
 
-        .logo-box { display: flex; align-items: center; gap: 8px; text-decoration: none; }
-        .logo-icon { background: var(--primary); color: white; padding: 4px 10px; border-radius: 4px; font-weight: 800; }
-        .logo-text { font-weight: 800; font-size: 18px; color: var(--primary); letter-spacing: 1px; }
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
 
-        nav ul { display: flex; list-style: none; gap: 20px; }
-        nav ul li a { text-decoration: none; color: var(--primary); font-weight: 700; font-size: 12px; }
-        nav ul li a:hover { color: var(--accent); }
+        .logo-icon {
+            background: var(--primary);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 800;
+        }
+
+        .logo-text {
+            font-weight: 800;
+            font-size: 18px;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 12px;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent);
+        }
 
         .btn-porsche {
-            background: var(--primary); color: white;
-            padding: 12px 25px; text-decoration: none;
-            font-weight: 700; font-size: 14px;
-            transition: 0.4s; border: none; display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            transition: 0.4s;
+            border: none;
+            display: inline-block;
         }
+
         .btn-porsche:hover {
             background: var(--accent);
             transform: translateY(-2px);
         }
-          .mesh-bg {
+
+        .mesh-bg {
             position: fixed;
             top: 0;
             left: 0;
@@ -165,7 +273,8 @@
                 radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.1) 0, transparent 50%),
                 radial-gradient(at 100% 0%, rgba(236, 72, 153, 0.1) 0, transparent 50%);
         }
-   /* --- MOVING 3D OBJECTS BACKGROUND --- */
+
+        /* --- MOVING 3D OBJECTS BACKGROUND --- */
         .bg-floating-objects {
             position: fixed;
             top: 0;
@@ -219,7 +328,8 @@
                 transform: translate(30px, 50px) rotate(10deg);
             }
         }
-/* --- MOVING OBJECTS (CLIPART) --- */
+
+        /* --- MOVING OBJECTS (CLIPART) --- */
         .floating-container {
             position: fixed;
             top: 0;
@@ -337,39 +447,143 @@
                 transform: translate(30px, 50px) rotate(10deg);
             }
         }
-/* Mobile & Tablet par OFF */
-@media (max-width: 1023px) {
 
-    /* Clipart Objects */
-    .floating-container {
-        display: none !important;
-    }
+        /* Mobile & Tablet par OFF */
+        @media (max-width: 1023px) {
 
-    /* 3D Background Objects */
-    .bg-floating-objects {
-        display: none !important;
-    }
+            /* Clipart Objects */
+            .floating-container {
+                display: none !important;
+            }
 
-}
+            /* 3D Background Objects */
+            .bg-floating-objects {
+                display: none !important;
+            }
+
+        }
+
+        /* --- REVIEWS SECTION (Improved for Dragging) --- */
+        .reviews-wrapper {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 20px 0;
+            user-select: none;
+            /* Mouse selection off */
+        }
+
+        .reviews-container {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 10px 0;
+            cursor: grab;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            scroll-behavior: auto;
+            /* Required for smooth manual drag */
+        }
+
+        .reviews-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .reviews-container:active {
+            cursor: grabbing;
+        }
+
+        .review-card {
+            width: 320px;
+            background: white;
+            padding: 30px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            white-space: normal;
+            flex-shrink: 0;
+            pointer-events: none;
+            /* Prevents text selection inside cards while dragging */
+        }
+
+        .review-card .stars {
+            color: #facc15;
+            margin-bottom: 10px;
+        }
+
+        .review-card p {
+            font-style: italic;
+            color: #475569;
+            font-size: 15px;
+            margin-bottom: 15px;
+            text-transform: none;
+            line-height: 1.6;
+        }
+
+        .review-card .author {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--primary);
+        }
 
         /* --- HERO SECTION (Responsive Fix) --- */
         .hero {
             min-height: 100vh;
-            display: flex; align-items: center;
-            padding: 100px 5% 50px; gap: 40px;
-            position: relative; width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 100px 5% 50px;
+            gap: 40px;
+            position: relative;
+            width: 100%;
         }
 
-        .hero-content { flex: 1; z-index: 2; }
-        .hero h1 { font-size: clamp(2rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 20px; }
-        .hero h1 span { color: var(--accent); }
-        .hero-content p { font-size: 1.1rem; color: #64748b; margin-bottom: 30px; max-width: 500px; }
-        .hero-visual { flex: 1.2; position: relative; width: 100%; }
+        .hero-content {
+            flex: 1;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .hero-visual {
+            flex: 1.2;
+            position: relative;
+            width: 100%;
+        }
 
         /* --- UI HELPERS --- */
-        .section-padding { padding: 80px 5%; width: 100%; max-width: 1400px; margin: 0 auto; }
-        .center-title { text-align: center; margin-bottom: 50px; width: 100%; }
-        .center-title h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; }
+        .section-padding {
+            padding: 80px 5%;
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .center-title {
+            text-align: center;
+            margin-bottom: 50px;
+            width: 100%;
+        }
+
+        .center-title h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+        }
 
         /* --- GRID SYSTEMS (Mobile Friendly) --- */
         .grid-3 {
@@ -378,109 +592,307 @@
             gap: 25px;
         }
 
-        .service-card { padding: 40px; border: 1px solid var(--border); transition: 0.4s; height: 100%; text-align: center; }
-        .service-card:hover { background: var(--primary); color: white; }
-        .service-card i { font-size: 40px; color: var(--accent); margin-bottom: 20px; }
+        .service-card {
+            padding: 40px;
+            border: 1px solid var(--border);
+            transition: 0.4s;
+            height: 100%;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .service-card i {
+            font-size: 40px;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
 
         .warning-strip {
-            background: var(--danger); color: white;
-            padding: 15px; text-align: center;
-            font-weight: 800; font-size: clamp(12px, 2.5vw, 16px);
-            position: relative; z-index: 10; width: 100%;
+            background: var(--danger);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: 800;
+            font-size: clamp(12px, 2.5vw, 16px);
+            position: relative;
+            z-index: 10;
+            width: 100%;
         }
 
         /* --- COMPARE GRID --- */
         .compare-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px; margin-top: 40px;
+            gap: 20px;
+            margin-top: 40px;
         }
-        .compare-item { position: relative; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+        .compare-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
         .compare-label {
-            position: absolute; bottom: 15px; left: 15px;
-            background: rgba(0,0,0,0.7); color: white;
-            padding: 5px 12px; font-size: 10px; font-weight: 700;
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 12px;
+            font-size: 10px;
+            font-weight: 700;
         }
 
         /* --- RESTORATION LAB --- */
-        .restoration-lab { padding: 80px 5%; background: var(--primary); color: white; border-top: 10px solid var(--accent); }
-        .restore-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; max-width: 1200px; margin: 0 auto; }
-        .restore-tag { background: var(--accent); color: white; padding: 5px 15px; font-size: 12px; font-weight: 800; border-radius: 4px; margin-bottom: 20px; display: inline-block; }
+        .restoration-lab {
+            padding: 80px 5%;
+            background: var(--primary);
+            color: white;
+            border-top: 10px solid var(--accent);
+        }
+
+        .restore-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .restore-tag {
+            background: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            font-size: 12px;
+            font-weight: 800;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
 
         /* --- ADDRESS --- */
         .address-box {
-            background: var(--bg-light); padding: 80px 5%;
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 40px; align-items: center; border-top: 1px solid var(--border);
+            background: var(--bg-light);
+            padding: 80px 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            border-top: 1px solid var(--border);
         }
-        .address-card { background: white; padding: 30px; border: 2px dashed var(--primary); border-radius: 4px; }
+
+        .address-card {
+            background: white;
+            padding: 30px;
+            border: 2px dashed var(--primary);
+            border-radius: 4px;
+        }
 
         /* --- FAQ --- */
-        .faq-box { max-width: 800px; margin: auto; }
-        .faq-box details { background: #f8fafc; padding: 15px 20px; margin-bottom: 12px; border-radius: 10px; border: 1px solid #e2e8f0; }
-        .faq-box summary { font-weight: 600; font-size: 16px; cursor: pointer; outline: none; display: flex; justify-content: space-between; align-items: center; }
-.section-padding {
-    padding: 60px 20px;
-}
+        .faq-box {
+            max-width: 800px;
+            margin: auto;
+        }
 
-.center-title {
-    text-align: center;
-    margin-bottom: 30px;
-}
+        .faq-box details {
+            background: #f8fafc;
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+        }
 
-.faq-box {
-    max-width: 800px;
-    margin: auto;
-}
+        .faq-box summary {
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            outline: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.faq-box details {
-    background: #f8fafc;
-    padding: 15px 20px;
-    margin-bottom: 12px;
-    border-radius: 10px;
-    border: 1px solid #e2e8f0;
-    transition: 0.3s;
-}
+        .section-padding {
+            padding: 60px 20px;
+        }
 
-.faq-box details[open] {
-    background: #eef2ff;
-}
+        .center-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-.faq-box summary {
-    font-weight: 600;
-    font-size: 16px;
-    cursor: pointer;
-    outline: none;
-}
+        .faq-box {
+            max-width: 800px;
+            margin: auto;
+        }
 
-.faq-box p {
-    padding-top: 10px;
-    color: #64748b;
-    font-size: 14px;
-    line-height: 1.6;
-}
+        .faq-box details {
+            background: #f8fafc;
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            transition: 0.3s;
+        }
+
+        .faq-box details[open] {
+            background: #eef2ff;
+        }
+
+        .faq-box summary {
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .faq-box p {
+            padding-top: 10px;
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+
+
+
+        /* --- QUALITY COMPARISON --- */
+        .quality-compare {
+            padding: 100px 5%;
+            text-align: center;
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .compare-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .compare-item img {
+            width: 100%;
+            display: block;
+        }
+
+        .compare-label {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 15px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+
+
         /* --- DELIVERY BANNER --- */
         .delivery-banner {
-            background: var(--primary); color: white;
-            padding: 50px 5%; display: grid;
+            background: var(--primary);
+            color: white;
+            padding: 50px 5%;
+            display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 30px; text-align: center;
+            gap: 30px;
+            text-align: center;
         }
-        .delivery-item i { font-size: 30px; color: var(--accent); margin-bottom: 15px; }
+
+        .delivery-item i {
+            font-size: 30px;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
 
         /* --- CTA SECTION --- */
-        .action-cta { background: var(--primary); padding: 60px 30px; border-radius: 30px; text-align: center; color: white; width: 100%; }
+        .action-cta {
+            background: var(--primary);
+            padding: 60px 30px;
+            border-radius: 30px;
+            text-align: center;
+            color: white;
+            width: 100%;
+        }
 
         /* --- BUTTONS --- */
-        .btn-pro { background: var(--primary); color: white; padding: 15px 35px; border-radius: 8px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.4s; }
+        .btn-pro {
+            background: var(--primary);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            transition: 0.4s;
+        }
 
         /* --- FLOATING ELEMENTS (No Change) --- */
-        .bg-floating-objects, .floating-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; overflow: hidden; }
-        .floating-item, .obj { position: absolute; opacity: 0.05; color: var(--primary); }
-        .item-1 { font-size: 150px; top: 10%; left: -5%; animation: drift 25s infinite linear; }
-        .item-2 { font-size: 100px; bottom: 10%; right: -5%; animation: drift 30s infinite linear reverse; }
-        @keyframes drift { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 50% { transform: translate(30px, 50px) rotate(10deg); } }
-        @keyframes spin { 100% { transform: rotate(360deg); } }
+        .bg-floating-objects,
+        .floating-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .floating-item,
+        .obj {
+            position: absolute;
+            opacity: 0.05;
+            color: var(--primary);
+        }
+
+        .item-1 {
+            font-size: 150px;
+            top: 10%;
+            left: -5%;
+            animation: drift 25s infinite linear;
+        }
+
+        .item-2 {
+            font-size: 100px;
+            bottom: 10%;
+            right: -5%;
+            animation: drift 30s infinite linear reverse;
+        }
+
+        @keyframes drift {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            50% {
+                transform: translate(30px, 50px) rotate(10deg);
+            }
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
 
         /* --- WHATSAPP FLOAT --- */
         /* .wa-float {
@@ -491,9 +903,16 @@
             z-index: 2000; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }*/
 
-        footer { padding: 40px 5%; text-align: center; border-top: 1px solid var(--border); font-size: 12px; color: #94a3b8; background: white; } 
+        footer {
+            padding: 40px 5%;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+            color: #94a3b8;
+            background: white;
+        }
 
- .wa-float {
+        .wa-float {
             position: fixed;
             bottom: 30px;
             right: 30px;
@@ -520,33 +939,52 @@
 
         /* --- TV & LARGE SCREEN FIX --- */
         @media (min-width: 1800px) {
-            .hero, .section-padding, .restore-grid, .address-box { max-width: 1600px; margin: 0 auto; }
+
+            .hero,
+            .section-padding,
+            .restore-grid,
+            .address-box {
+                max-width: 1600px;
+                margin: 0 auto;
+            }
         }
 
         /* --- MOBILE & TABLET FIXES --- */
         @media (max-width: 1024px) {
-            nav ul { gap: 15px; }
-            .hero { gap: 20px; }
-            
+            nav ul {
+                gap: 15px;
+            }
+
+            .hero {
+                gap: 20px;
+            }
+
         }
 
         @media (max-width: 768px) {
-            header { height: 70px; }
-            nav { display: none; }
-             /* Standard Mobile behavior: Hide desktop menu */
-            
+            header {
+                height: 70px;
+            }
 
-.hero-btn{
-    display: flex;
-    justify-content: flex-start; /* desktop pe left */
-}
+            nav {
+                display: none;
+            }
 
-/* mobile pe center */
-@media(max-width:768px){
-    .hero-btn{
-        justify-content: center;
-    }
-}
+            /* Standard Mobile behavior: Hide desktop menu */
+
+
+            .hero-btn {
+                display: flex;
+                justify-content: flex-start;
+                /* desktop pe left */
+            }
+
+            /* mobile pe center */
+            @media(max-width:768px) {
+                .hero-btn {
+                    justify-content: center;
+                }
+            }
 
             .hero {
                 flex-direction: column;
@@ -556,29 +994,66 @@
                 min-height: unset;
             }
 
-            .hero-content p { margin: 0 auto 30px; }
-            
-            .restore-grid, .address-box, .compare-grid {
+            .hero-content p {
+                margin: 0 auto 30px;
+            }
+
+            .restore-grid,
+            .address-box,
+            .compare-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
 
-            .compare-grid { max-width: 500px; margin-left: auto; margin-right: auto; }
+            .compare-grid {
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+            }
 
-            .section-padding { padding: 50px 5%; }
-            .action-cta { border-radius: 15px; padding: 40px 20px; }
-            
-            .logo-text { font-size: 15px; }
-            .logo-icon { padding: 2px 8px; }
+            .section-padding {
+                padding: 50px 5%;
+            }
 
-            .btn-porsche { padding: 10px 15px; font-size: 12px; }
+            .action-cta {
+                border-radius: 15px;
+                padding: 40px 20px;
+            }
+
+            .logo-text {
+                font-size: 15px;
+            }
+
+            .logo-icon {
+                padding: 2px 8px;
+            }
+
+            .btn-porsche {
+                padding: 10px 15px;
+                font-size: 12px;
+            }
         }
 
         @media (max-width: 480px) {
-            .hero h1 { font-size: 1.8rem; }
-            .center-title h2 { font-size: 1.5rem; }
-            .service-card { padding: 30px 20px; }
-            .wa-float { width: 50px; height: 50px; font-size: 25px; bottom: 15px; right: 15px; }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .center-title h2 {
+                font-size: 1.5rem;
+            }
+
+            .service-card {
+                padding: 30px 20px;
+            }
+
+            .wa-float {
+                width: 50px;
+                height: 50px;
+                font-size: 25px;
+                bottom: 15px;
+                right: 15px;
+            }
         }
     </style>
 </head>
@@ -593,37 +1068,18 @@
             <i class="fas fa-video"></i>
         </div>
         <div class="loader-text">Shiv Sonu Studio<br>Digitizing Memories</div>
-        <div class="loader-bar"><div class="loader-progress"></div></div>
+        <div class="loader-bar">
+            <div class="loader-progress"></div>
+        </div>
     </div>
-<div class="mesh-bg"></div>
+    <div class="mesh-bg"></div>
     <div class="bg-floating-objects">
         <i class="fas fa-tape floating-item item-1"></i>
         <i class="fas fa-compact-disc floating-item item-2"></i>
+        <i class="fa-solid fa-camera"></i>
     </div>
-      <!-- Moving Objects Container -->
-    <div class="floating-container">
-        <!-- CD Clipart -->
-        <i class="fas fa-compact-disc obj cd-obj" style="top: 15%; left: 10%;"></i>
-        <i class="fas fa-compact-disc obj cd-obj"
-            style="top: 70%; left: 85%; animation-duration: 6s; opacity: 0.1;"></i>
-
-        <!-- VHS Clipart -->
-        <i class="fas fa-tape obj vhs-obj" style="top: 25%; right: 15%;"></i>
-        <i class="fas fa-tape obj vhs-obj" style="top: 80%; left: 15%; animation-delay: 2s;"></i>
-
-        <!-- MiniDV/Video Clipart -->
-        <i class="fas fa-video obj dv-obj" style="top: 40%; left: -100px; animation-duration: 20s;"></i>
-        <i class="fas fa-video obj dv-obj"
-            style="top: 10%; left: -100px; animation-duration: 12s; animation-delay: 5s;"></i>
 
 
-    </div>
-    <!-- 2. MOVING BACKGROUND OBJECTS -->
-    <div class="bg-floating-objects">
-        <i class="fas fa-tape floating-item item-1"></i>
-        <i class="fas fa-compact-disc floating-item item-2"></i>
-        <i class="fas fa-camera floating-item item-3"></i>
-    </div>
 
     <!-- HEADER (Responsive) -->
     <header>
@@ -649,13 +1105,15 @@
         <div class="hero-content" data-aos="fade-right">
             <h1>LEGACY <br><span>REMASTERED</span></h1>
             <p>“Studio-grade conversion of VHS, MiniDV & discs into high-quality digital formats.”</p>
-            <div class="hero-btn"style="display:flex; gap:10px; flex-wrap:wrap; ">
-                <a href="https://wa.me/919999339371" class="btn-porsche" style="background:var(--accent); border:none; padding:18px 40px;">SEND TAPES NOW</a>
+            <div class="hero-btn" style="display:flex; gap:10px; flex-wrap:wrap; ">
+                <a href="https://wa.me/919999339371" class="btn-porsche"
+                    style="background:var(--accent); border:none; padding:18px 40px;">SEND TAPES NOW</a>
             </div>
         </div>
         <div class="hero-visual" data-aos="zoom-in">
             <img src="https://images.unsplash.com/photo-1590650153855-d9e808231d41?auto=format&fit=crop&w=1000&q=80"
-                style="border-radius:10px; box-shadow: 0 40px 80px rgba(0,0,0,0.1);" alt="Shiv Sonu Studio Video Tape Digitization">
+                style="border-radius:10px; box-shadow: 0 40px 80px rgba(0,0,0,0.1);"
+                alt="Shiv Sonu Studio Video Tape Digitization">
         </div>
     </section>
 
@@ -668,44 +1126,75 @@
     <section class="section-padding" id="warning">
         <div class="center-title" data-aos="fade-up">
             <h2 style="color:var(--danger);">Savdhan! Aapki Yaadein Khatre mein hain</h2>
-            <p style="margin-top:10px; font-weight: 600; text-transform:none;">Purani tapes ko digital banwana kyun zaroori hai?</p>
+            <p style="margin-top:10px; font-weight: 600; text-transform:none;">Purani tapes ko digital banwana kyun
+                zaroori hai?</p>
         </div>
         <div class="grid-3">
             <div class="service-card" data-aos="fade-up">
                 <i class="fas fa-biohazard"></i>
                 <h3>Fungus Ka Khatra</h3>
-                <p style="text-transform:none;">Tapes par fungus lagne se wo andar se chipak jati hain aur hamesha ke liye kharab ho jati hain.</p>
+                <p style="text-transform:none;">Tapes par fungus lagne se wo andar se chipak jati hain aur hamesha ke
+                    liye kharab ho jati hain.</p>
             </div>
             <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                 <i class="fas fa-wave-square"></i>
                 <h3>Magnet Loss</h3>
-                <p style="text-transform:none;">Har saal tapes ki magnetic quality kam hoti hai, jisse video dhundhli hone lagti hai.</p>
+                <p style="text-transform:none;">Har saal tapes ki magnetic quality kam hoti hai, jisse video dhundhli
+                    hone lagti hai.</p>
             </div>
             <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                 <i class="fas fa-search-minus"></i>
                 <h3>VCR Milna Mushkil</h3>
-                <p style="text-transform:none;">VHS Player aur Handycam ab market mein nahi milte. Digital hona hi ekmatra rasta hai.</p>
+                <p style="text-transform:none;">VHS Player aur Handycam ab market mein nahi milte. Digital hona hi
+                    ekmatra rasta hai.</p>
             </div>
         </div>
     </section>
 
     <!-- COMPARE SECTION (Responsive) -->
-    <section class="section-padding" style="background: #fff; border-bottom: 1px solid var(--border); text-align: center;">
+    <!-- <section class="section-padding"
+        style="background: #fff; border-bottom: 1px solid var(--border); text-align: center;">
         <div data-aos="fade-up">
             <h2>The Benchmark of Clarity</h2>
-            <p style="color:#64748b; text-transform:none; margin-top: 10px;">Hum Video Stabilizers (TBC) technology use karte hain.</p>
+            <p style="color:#64748b; text-transform:none; margin-top: 10px;">Hum Video Stabilizers (TBC) technology use
+                karte hain.</p>
         </div>
         <div class="compare-grid" data-aos="zoom-in">
             <div class="compare-item">
-                <img src="https://images.unsplash.com/photo-1590650153855-d9e808231d41?auto=format&fit=crop&w=600&q=80" style="filter: blur(2px) contrast(0.8) grayscale(0.5);">
+                <img src="https://images.unsplash.com/photo-1590650153855-d9e808231d41?auto=format&fit=crop&w=600&q=80"
+                    style="filter: blur(2px) contrast(0.8) grayscale(0.5);">
                 <div class="compare-label">ANALOGUE SIGNAL (BEFORE)</div>
             </div>
             <div class="compare-item">
-                <img src="https://images.unsplash.com/photo-1590650153855-d9e808231d41?auto=format&fit=crop&w=600&q=80" style="filter: contrast(1.1) brightness(1.1);">
+                <img src="https://images.unsplash.com/photo-1590650153855-d9e808231d41?auto=format&fit=crop&w=600&q=80"
+                    style="filter: contrast(1.1) brightness(1.1);">
+                <div class="compare-label" style="background:var(--accent);">DIGITAL MASTER (AFTER)</div>
+            </div>
+        </div>
+    </section> -->
+
+
+    <!-- Quality Comparison Section -->
+    <section class="quality-compare">
+        <div data-aos="fade-up">
+            <h2>The Benchmark of Clarity</h2>
+            <p style="text-transform:none; margin-top:10px; color:#64748b;">Hum TBC (Time Base Correction) technology
+                use karte hain taaki purani tape bhi saaf dikhe.</p>
+        </div>
+        <div class="compare-grid" data-aos="zoom-in">
+            <div class="compare-item">
+                <img src="https://images.unsplash.com/photo-1590650153855-d9e808231d41?auto=format&fit=crop&w=600&q=80"
+                    style="filter: blur(2px) contrast(0.8) grayscale(0.5);">
+                <div class="compare-label">ANALOGUE SIGNAL (BEFORE)</div>
+            </div>
+            <div class="compare-item">
+                <img src="https://images.unsplash.com/photo-1590650153855-d9e808231d41?auto=format&fit=crop&w=600&q=80"
+                    style="filter: contrast(1.1) brightness(1.1);">
                 <div class="compare-label" style="background:var(--accent);">DIGITAL MASTER (AFTER)</div>
             </div>
         </div>
     </section>
+
 
     <!-- RESTORATION LAB (Responsive) -->
     <section class="restoration-lab" id="restore">
@@ -713,11 +1202,15 @@
             <div data-aos="fade-right">
                 <span class="restore-tag">ADVANCED RECOVERY LAB</span>
                 <h2>Kharab ya Kati hui Tapes? <br><span style="color:var(--accent)">Fikar Mat Karein.</span></h2>
-                <p style="opacity: 0.8; line-height: 1.6; text-transform:none; margin-top:15px;">Shiv Sonu Studio mein hum kharab, fungus lagi hui, aur beech se kati hui tapes ko bhi restore karne ki poori koshish karte hain.</p>
+                <p style="opacity: 0.8; line-height: 1.6; text-transform:none; margin-top:15px;">Shiv Sonu Studio mein
+                    hum kharab, fungus lagi hui, aur beech se kati hui tapes ko bhi restore karne ki poori koshish karte
+                    hain.</p>
             </div>
-            <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);" data-aos="fade-left">
+            <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);"
+                data-aos="fade-left">
                 <h4 style="color: var(--accent); margin-bottom: 15px;">Humara Wada</h4>
-                <p style="text-transform:none;">"Agar kisi tape ka recovery possible nahi hota, toh hum aapki original tape aur pendrive safely wapas kar dete hain."</p>
+                <p style="text-transform:none;">"Agar kisi tape ka recovery possible nahi hota, toh hum aapki original
+                    tape aur pendrive safely wapas kar dete hain."</p>
             </div>
         </div>
     </section>
@@ -726,7 +1219,8 @@
     <section class="address-box" id="address">
         <div data-aos="fade-right">
             <h2>Courier Your Media <br>To Our Studio</h2>
-            <p style="color:#64748b; margin-top:15px; text-transform:none;">India ke kisi bhi kone se aap apni tapes humein securely courier kar sakte hain.</p>
+            <p style="color:#64748b; margin-top:15px; text-transform:none;">India ke kisi bhi kone se aap apni tapes
+                humein securely courier kar sakte hain.</p>
         </div>
         <div class="address-card" data-aos="fade-left">
             <h4 style="color:var(--accent);"><i class="fas fa-map-marker-alt"></i> STUDIO ADDRESS:</h4>
@@ -773,91 +1267,158 @@
             <div data-aos="fade-up" data-aos-delay="100">
                 <h1 style="opacity: 0.1; font-size: 50px; font-weight: 900;">02</h1>
                 <h4>Stabilize</h4>
-                <p style="font-size:14px; color:#64748b; text-transform:none;">Video Stabilizers & Time Base Correction.</p>
+                <p style="font-size:14px; color:#64748b; text-transform:none;">Video Stabilizers & Time Base Correction.
+                </p>
             </div>
             <div data-aos="fade-up" data-aos-delay="200">
                 <h1 style="opacity: 0.1; font-size: 50px; font-weight: 900;">03</h1>
                 <h4>Deliver</h4>
-                <p style="font-size:14px; color:#64748b; text-transform:none;">Data sent via Link or Pen Drive + Originals back.</p>
+                <p style="font-size:14px; color:#64748b; text-transform:none;">Data sent via Link or Pen Drive +
+                    Originals back.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CUSTOMER REVIEWS (Moving + Mouse Drag + Touch) -->
+    <section class="section-padding" id="reviews">
+        <div class="center-title" data-aos="fade-up">
+            <h2>Customer Reviews</h2>
+            <p style="margin-top:10px; color:#64748b; text-transform:none;">Pakad kar (Grab) ya swipe karke reviews
+                dekhein.</p>
+        </div>
+
+        <div class="reviews-wrapper">
+            <div class="reviews-container" id="reviewSlider">
+                <!-- Review Cards -->
+                <div class="review-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Excellent service! Recovered my parents' wedding video after 30 years. Quality is surprisingly
+                        good."</p>
+                    <div class="author">- Rajesh Kumar, Delhi</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Bhut hi badiya kaam hai. Fungus wali tapes bhi digital ho gayi. Packing was very safe."</p>
+                    <div class="author">- Vikram Singh, Mumbai</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Professional approach. Communicated well throughout the process. Highly recommended."</p>
+                    <div class="author">- Anjali Sharma, Bangalore</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Fast delivery and safe handling of old tapes. Very satisfied with the MP4 quality."</p>
+                    <div class="author">- Rahul Verma, Noida</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"The best studio for VHS conversion. Reliable and honest people."</p>
+                    <div class="author">- S. K. Gupta, Gurgaon</div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- DELIVERY -->
     <div class="delivery-banner">
-        <div class="delivery-item"><i class="fas fa-usb"></i><h4>PENDRIVE</h4></div>
-        <div class="delivery-item"><i class="fas fa-link"></i><h4>PRIVATE LINK</h4></div>
-        <div class="delivery-item"><i class="fas fa-undo"></i><h4>SAFE RETURN</h4></div>
+        <div class="delivery-item"><i class="fas fa-play-circle" ></i>
+            <h4 >1000+ Videos Converted</h4>
+        </div>
+        <div class="delivery-item">
+            <i class="fas fa-user-shield" ></i>
+                <h4 >100% Safe Handling</h4>
+        </div>
+        <div class="delivery-item"><i class="fas fa-tags"></i>
+            <h4 >Affordable Pricing</h4>
+        </div>
+        <div class="delivery-item"><i class="fas fa-undo"></i>
+            <h4>SAFE RETURN</h4>
+        </div>
     </div>
 
     <!-- FAQ -->
     <section class="section-padding" id="faq">
-    <div class="center-title">
-        <h2>Frequently Asked Questions</h2>
-    </div>
+        <div class="center-title">
+            <h2>Frequently Asked Questions</h2>
+        </div>
 
-    <div class="faq-box">
+        <div class="faq-box">
 
-        <details>
-            <summary>Which formats do you convert?</summary>
-            <p>Aap VHS, MiniDV, Hi8, Video8, CD aur DVD jaise formats ko high-quality MP4 mein convert karwa sakte hain.</p>
-        </details>
+            <details>
+                <summary>Which formats do you convert?</summary>
+                <p>Aap VHS, MiniDV, Hi8, Video8, CD aur DVD jaise formats ko high-quality MP4 mein convert karwa sakte
+                    hain.</p>
+            </details>
 
-        <details>
-            <summary>How long does the conversion take?</summary>
-            <p>Generally 2–5 din lagte hain, depending on tapes/discs ki quantity aur condition.</p>
-        </details>
+            <details>
+                <summary>How long does the conversion take?</summary>
+                <p>Generally 2–5 din lagte hain, depending on tapes/discs ki quantity aur condition.</p>
+            </details>
 
-        <details>
-            <summary>Does video quality improve?</summary>
-            <p>Hum best possible quality maintain karte hain. Final output original tape ki condition par depend karta hai.</p>
-        </details>
+            <details>
+                <summary>Does video quality improve?</summary>
+                <p>Hum best possible quality maintain karte hain. Final output original tape ki condition par depend
+                    karta hai.</p>
+            </details>
 
-        <details>
-            <summary>Can damaged or fungus tapes be recovered?</summary>
-            <p>Haan, hum fungus cleaning aur tape repair (splicing) jaise methods use karte hain. Har case mein recovery possible nahi hoti, lekin maximum effort diya jata hai.</p>
-        </details>
+            <details>
+                <summary>Can damaged or fungus tapes be recovered?</summary>
+                <p>Haan, hum fungus cleaning aur tape repair (splicing) jaise methods use karte hain. Har case mein
+                    recovery possible nahi hoti, lekin maximum effort diya jata hai.</p>
+            </details>
 
-        <details>
-            <summary>Is my original media safe?</summary>
-            <p>Bilkul. Aapki tapes ko carefully handle kiya jata hai aur kaam ke baad safely return kiya jata hai.</p>
-        </details>
+            <details>
+                <summary>Is my original media safe?</summary>
+                <p>Bilkul. Aapki tapes ko carefully handle kiya jata hai aur kaam ke baad safely return kiya jata hai.
+                </p>
+            </details>
 
-        <details>
-            <summary>What format will I receive?</summary>
-            <p>Aapko video MP4 format mein milega, jo mobile, TV aur computer sab par easily chal jata hai.</p>
-        </details>
+            <details>
+                <summary>What format will I receive?</summary>
+                <p>Aapko video MP4 format mein milega, jo mobile, TV aur computer sab par easily chal jata hai.</p>
+            </details>
 
-        <details>
-            <summary>How will I receive my videos?</summary>
-            <p>Pendrive, Hard Drive ya Google Drive link — aap apni preference choose kar sakte hain.</p>
-        </details>
+            <details>
+                <summary>How will I receive my videos?</summary>
+                <p>Pendrive, Hard Drive ya Google Drive link — aap apni preference choose kar sakte hain.</p>
+            </details>
 
-        <details>
-            <summary>Can I courier my tapes?</summary>
-            <p>Haan, aap India ke kisi bhi kone se courier kar sakte hain. Receive hote hi WhatsApp confirmation milta hai.</p>
-        </details>
+            <details>
+                <summary>Can I courier my tapes?</summary>
+                <p>Haan, aap India ke kisi bhi kone se courier kar sakte hain. Receive hote hi WhatsApp confirmation
+                    milta hai.</p>
+            </details>
 
-        <details>
-            <summary>What if my tape cannot be converted?</summary>
-            <p>Agar recovery possible nahi hoti, toh hum aapki original tape aur pendrive bina kisi hidden charges ke safely return kar dete hain.</p>
-        </details>
+            <details>
+                <summary>What if my tape cannot be converted?</summary>
+                <p>Agar recovery possible nahi hoti, toh hum aapki original tape aur pendrive bina kisi hidden charges
+                    ke safely return kar dete hain.</p>
+            </details>
 
-        <details>
-            <summary>How are charges calculated?</summary>
-            <p>Charges tape/disc type, duration aur condition (normal ya damaged) par depend karte hain. Aapko pehle free quote diya jata hai.</p>
-        </details>
+            <details>
+                <summary>How are charges calculated?</summary>
+                <p>Charges tape/disc type, duration aur condition (normal ya damaged) par depend karte hain. Aapko pehle
+                    free quote diya jata hai.</p>
+            </details>
 
-    </div>
-</section>
+        </div>
+    </section>
 
 
     <!-- ACTION CTA -->
     <section class="section-padding" style="text-align: center;">
         <div class="action-cta" data-aos="zoom-in">
             <h2 style="color: white; margin-bottom: 15px;">Ready to digitize your memories?</h2>
-            <p style="margin-bottom: 30px; opacity: 0.9; text-transform:none;">Trusted by 5,000+ families across India.</p>
-            <a href="https://wa.me/9999339371" class="btn-pro" style="background: white; color: var(--primary);">Get a Free Quote Now</a>
+            <p style="margin-bottom: 30px; opacity: 0.9; text-transform:none;">Trusted by 5,000+ families across India.
+            </p>
+            <a href="https://wa.me/9999339371" class="btn-pro" style="background: white; color: var(--primary);">Get a
+                Free Quote Now</a>
         </div>
     </section>
 
@@ -880,32 +1441,87 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
+
+        // Loader
         window.addEventListener('load', () => {
             setTimeout(() => {
                 const loader = document.getElementById('loader');
-                if(loader) {
-                    loader.style.opacity = '0'; 
-                    loader.style.visibility = 'hidden';
-                }
+                if (loader) { loader.style.opacity = '0'; loader.style.visibility = 'hidden'; }
                 document.body.classList.remove('loading');
             }, 2000);
         });
-        AOS.init({ duration: 1000, once: true });
 
-        // Add more moving objects dynamically for fun
-        const container = document.querySelector('.floating-container');
-        const icons = ['fa-compact-disc', 'fa-tape', 'fa-video'];
+        // --- NEW IMPROVED REVIEW SLIDER LOGIC ---
+        const slider = document.getElementById('reviewSlider');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        let autoScrollActive = true;
+        const autoScrollSpeed = 0.8; // Slow smooth movement
 
-        for (let i = 0; i < 5; i++) {
-            const icon = document.createElement('i');
-            icon.className = `fas ${icons[Math.floor(Math.random() * icons.length)]} obj`;
-            icon.style.left = Math.random() * 100 + "vw";
-            icon.style.top = Math.random() * 100 + "vh";
-            icon.style.fontSize = Math.random() * 30 + 20 + "px";
-            icon.style.opacity = "0.1";
-            icon.style.animation = `spin ${Math.random() * 10 + 5}s linear infinite`;
-            container.appendChild(icon);
+        // Clone content for infinite loop effect
+        const initialContent = slider.innerHTML;
+        slider.innerHTML += initialContent;
+
+        // Auto Scroll Loop
+        function autoScroll() {
+            if (autoScrollActive && !isDown) {
+                slider.scrollLeft += autoScrollSpeed;
+                // Reset when half way (since content is duplicated)
+                if (slider.scrollLeft >= slider.scrollWidth / 2) {
+                    slider.scrollLeft = 0;
+                }
+            }
+            requestAnimationFrame(autoScroll);
         }
+        autoScroll();
+
+        // Mouse Down (Start Drag)
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.classList.add('active');
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+            autoScrollActive = false; // Stop auto scroll
+        });
+
+        // Mouse Leave (Stop Drag)
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            autoScrollActive = true; // Resume auto scroll
+        });
+
+        // Mouse Up (Stop Drag)
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            autoScrollActive = true; // Resume auto scroll
+        });
+
+        // Mouse Move (Dragging)
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault(); // Stop text selection
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2; // Drag speed
+            slider.scrollLeft = scrollLeft - walk;
+        });
+
+        // Touch Support for Mobile
+        slider.addEventListener('touchstart', () => {
+            isDown = true;
+            autoScrollActive = false;
+        });
+
+        slider.addEventListener('touchend', () => {
+            isDown = false;
+            autoScrollActive = true;
+        });
+
+        slider.addEventListener('touchmove', (e) => {
+            // Touch move handled by browser naturally, but we stop auto scroll
+            autoScrollActive = false;
+        });
     </script>
 </body>
+
 </html>
