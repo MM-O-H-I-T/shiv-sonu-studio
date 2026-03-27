@@ -46,1021 +46,14 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Roboto:wght@300;400;500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 
-    <style>
-        :root {
-            --primary: #0F172A;
-            --accent: #F97316;
-            --danger: #D5001C;
-            --bg-light: #F8FAFC;
-            --white: #FFFFFF;
-            --border: #E2E8F0;
-        }
-
-        /* --- GLOBAL RESPONSIVE FIXES --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        html,
-        body {
-            overflow-x: hidden;
-            /* Prevent horizontal scroll */
-            width: 100%;
-            position: relative;
-        }
-
-        body.loading {
-            overflow: hidden;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        .logo {
-            font-family: 'Poppins', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: -0.5px;
-            word-wrap: break-word;
-        }
-
-        /* --- PRE-LOADER (No Change) --- */
-        #loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--primary);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 99999;
-            transition: opacity 0.8s ease-in-out, visibility 0.8s;
-        }
-
-        .loader-icons {
-            height: 80px;
-            position: relative;
-            width: 80px;
-        }
-
-        .loader-icons i {
-            font-size: 50px;
-            color: var(--white);
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0;
-            animation: iconCycle 3s infinite;
-        }
-
-        .loader-icons i:nth-child(2) {
-            animation-delay: 1s;
-        }
-
-        .loader-icons i:nth-child(3) {
-            animation-delay: 2s;
-        }
-
-        @keyframes iconCycle {
-
-            0%,
-            100% {
-                opacity: 0;
-                transform: translateX(-50%) translateY(20px);
-            }
-
-            10%,
-            30% {
-                opacity: 1;
-                transform: translateX(-50%) translateY(0);
-            }
-
-            40% {
-                opacity: 0;
-                transform: translateX(-50%) translateY(-20px);
-            }
-        }
-
-        .loader-text {
-            color: var(--white);
-            margin-top: 20px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            font-size: 14px;
-            text-transform: uppercase;
-            text-align: center;
-        }
-
-        .loader-bar {
-            width: 200px;
-            height: 2px;
-            background: rgba(255, 255, 255, 0.1);
-            margin-top: 15px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .loader-progress {
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 0%;
-            background: var(--accent);
-            animation: progressFill 3s forwards;
-        }
-
-        @keyframes progressFill {
-            100% {
-                width: 100%;
-            }
-        }
-
-        /* --- HEADER & NAV (Responsive) --- */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            height: 80px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 5%;
-            z-index: 1000;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .logo-box {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-        }
-
-        .logo-icon {
-            background: var(--primary);
-            color: white;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-weight: 800;
-        }
-
-        .logo-text {
-            font-weight: 800;
-            font-size: 18px;
-            color: var(--primary);
-            letter-spacing: 1px;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: var(--primary);
-            font-weight: 700;
-            font-size: 12px;
-        }
-
-        nav ul li a:hover {
-            color: var(--accent);
-        }
-
-        .btn-porsche {
-            background: var(--primary);
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 14px;
-            transition: 0.4s;
-            border: none;
-            display: inline-block;
-        }
-
-        .btn-porsche:hover {
-            background: var(--accent);
-            transform: translateY(-2px);
-        }
-
-        .mesh-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            background:
-                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.1) 0, transparent 50%),
-                radial-gradient(at 100% 0%, rgba(236, 72, 153, 0.1) 0, transparent 50%);
-        }
-
-        /* --- MOVING 3D OBJECTS BACKGROUND --- */
-        .bg-floating-objects {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .floating-item {
-            position: absolute;
-            color: var(--primary);
-            opacity: 0.05;
-            filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.1));
-            animation: drift infinite linear;
-        }
-
-        .item-1 {
-            font-size: 180px;
-            top: 10%;
-            left: -10%;
-            animation-duration: 25s;
-        }
-
-        .item-2 {
-            font-size: 120px;
-            top: 60%;
-            right: -5%;
-            animation-duration: 30s;
-            animation-direction: reverse;
-        }
-
-        .item-3 {
-            font-size: 80px;
-            top: 40%;
-            left: 50%;
-            animation-duration: 20s;
-            opacity: 0.03;
-        }
-
-        @keyframes drift {
-
-            0%,
-            100% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-
-            50% {
-                transform: translate(30px, 50px) rotate(10deg);
-            }
-        }
-
-        /* --- MOVING OBJECTS (CLIPART) --- */
-        .floating-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .obj {
-            position: absolute;
-            opacity: 0.2;
-            filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.1));
-            color: var(--primary);
-        }
-
-        /* CD Rotation Animation */
-        .cd-obj {
-            font-size: 80px;
-            animation: spin 10s linear infinite;
-        }
-
-        /* VHS Float Animation */
-        .vhs-obj {
-            font-size: 60px;
-            animation: float-vhs 8s ease-in-out infinite alternate;
-        }
-
-        /* MiniDV Drift Animation */
-        .dv-obj {
-            font-size: 40px;
-            animation: drift 15s linear infinite;
-        }
-
-        @keyframes spin {
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        @keyframes float-vhs {
-            0% {
-                transform: translateY(0) rotate(0deg);
-            }
-
-            100% {
-                transform: translateY(-40px) rotate(15deg);
-            }
-        }
-
-        @keyframes drift {
-            0% {
-                left: -100px;
-                transform: rotate(0deg);
-            }
-
-            100% {
-                left: 110%;
-                transform: rotate(360deg);
-            }
-        }
-
-        .bg-floating-objects {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .floating-item {
-            position: absolute;
-            color: var(--primary);
-            opacity: 0.05;
-            filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.1));
-            animation: drift infinite linear;
-        }
-
-        .item-1 {
-            font-size: 180px;
-            top: 10%;
-            left: -10%;
-            animation-duration: 25s;
-        }
-
-        .item-2 {
-            font-size: 120px;
-            top: 60%;
-            right: -5%;
-            animation-duration: 30s;
-            animation-direction: reverse;
-        }
-
-        .item-3 {
-            font-size: 80px;
-            top: 40%;
-            left: 50%;
-            animation-duration: 20s;
-            opacity: 0.03;
-        }
-
-        @keyframes drift {
-
-            0%,
-            100% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-
-            50% {
-                transform: translate(30px, 50px) rotate(10deg);
-            }
-        }
-
-        /* Mobile & Tablet par OFF */
-        @media (max-width: 1023px) {
-
-            /* Clipart Objects */
-            .floating-container {
-                display: none !important;
-            }
-
-            /* 3D Background Objects */
-            .bg-floating-objects {
-                display: none !important;
-            }
-
-        }
-
-        /* --- REVIEWS SECTION (Improved for Dragging) --- */
-        .reviews-wrapper {
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            padding: 20px 0;
-            user-select: none;
-            /* Mouse selection off */
-        }
-
-        .reviews-container {
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            white-space: nowrap;
-            padding: 10px 0;
-            cursor: grab;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            scroll-behavior: auto;
-            /* Required for smooth manual drag */
-        }
-
-        .reviews-container::-webkit-scrollbar {
-            display: none;
-        }
-
-        .reviews-container:active {
-            cursor: grabbing;
-        }
-
-        .review-card {
-            width: 320px;
-            background: white;
-            padding: 30px;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            white-space: normal;
-            flex-shrink: 0;
-            pointer-events: none;
-            /* Prevents text selection inside cards while dragging */
-        }
-
-        .review-card .stars {
-            color: #facc15;
-            margin-bottom: 10px;
-        }
-
-        .review-card p {
-            font-style: italic;
-            color: #475569;
-            font-size: 15px;
-            margin-bottom: 15px;
-            text-transform: none;
-            line-height: 1.6;
-        }
-
-        .review-card .author {
-            font-weight: 700;
-            font-size: 14px;
-            color: var(--primary);
-        }
-
-        /* --- HERO SECTION (Responsive Fix) --- */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 100px 5% 50px;
-            gap: 40px;
-            position: relative;
-            width: 100%;
-        }
-
-        .hero-content {
-            flex: 1;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: clamp(2rem, 5vw, 4rem);
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 span {
-            color: var(--accent);
-        }
-
-        .hero-content p {
-            font-size: 1.1rem;
-            color: #64748b;
-            margin-bottom: 30px;
-            max-width: 500px;
-        }
-
-        .hero-visual {
-            flex: 1.2;
-            position: relative;
-            width: 100%;
-        }
-
-        /* --- UI HELPERS --- */
-        .section-padding {
-            padding: 80px 5%;
-            width: 100%;
-            max-width: 100%;
-            margin: 0 auto;
-        }
-
-        .center-title {
-            text-align: center;
-            margin-bottom: 50px;
-            width: 100%;
-        }
-
-        .center-title h2 {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            font-weight: 800;
-        }
-
-        /* --- GRID SYSTEMS (Mobile Friendly) --- */
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .service-card {
-            padding: 40px;
-            border: 1px solid var(--border);
-            transition: 0.4s;
-            height: 100%;
-            text-align: center;
-        }
-
-        .service-card:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        .service-card i {
-            font-size: 40px;
-            color: var(--accent);
-            margin-bottom: 20px;
-        }
-
-        .warning-strip {
-            background: var(--danger);
-            color: white;
-            padding: 15px;
-            text-align: center;
-            font-weight: 800;
-            font-size: clamp(12px, 2.5vw, 16px);
-            position: relative;
-            z-index: 10;
-            width: 100%;
-        }
-
-        /* --- COMPARE GRID --- */
-        .compare-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .compare-item {
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .compare-label {
-            position: absolute;
-            bottom: 15px;
-            left: 15px;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 5px 12px;
-            font-size: 10px;
-            font-weight: 700;
-        }
-
-        /* --- RESTORATION LAB --- */
-        .restoration-lab {
-            padding: 80px 5%;
-            background: var(--primary);
-            color: white;
-            border-top: 10px solid var(--accent);
-        }
-
-        .restore-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .restore-tag {
-            background: var(--accent);
-            color: white;
-            padding: 5px 15px;
-            font-size: 12px;
-            font-weight: 800;
-            border-radius: 4px;
-            margin-bottom: 20px;
-            display: inline-block;
-        }
-
-        /* --- ADDRESS --- */
-        .address-box {
-            background: var(--bg-light);
-            padding: 80px 5%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-            border-top: 1px solid var(--border);
-        }
-
-        .address-card {
-            background: white;
-            padding: 30px;
-            border: 2px dashed var(--primary);
-            border-radius: 4px;
-        }
-
-        /* --- FAQ --- */
-        .faq-box {
-            max-width: 800px;
-            margin: auto;
-        }
-
-        .faq-box details {
-            background: #f8fafc;
-            padding: 15px 20px;
-            margin-bottom: 12px;
-            border-radius: 10px;
-            border: 1px solid #e2e8f0;
-        }
-
-        .faq-box summary {
-            font-weight: 600;
-            font-size: 16px;
-            cursor: pointer;
-            outline: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .section-padding {
-            padding: 60px 20px;
-        }
-
-        .center-title {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .faq-box {
-            max-width: 800px;
-            margin: auto;
-        }
-
-        .faq-box details {
-            background: #f8fafc;
-            padding: 15px 20px;
-            margin-bottom: 12px;
-            border-radius: 10px;
-            border: 1px solid #e2e8f0;
-            transition: 0.3s;
-        }
-
-        .faq-box details[open] {
-            background: #eef2ff;
-        }
-
-        .faq-box summary {
-            font-weight: 600;
-            font-size: 16px;
-            cursor: pointer;
-            outline: none;
-        }
-
-        .faq-box p {
-            padding-top: 10px;
-            color: #64748b;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-
-
-
-        /* --- QUALITY COMPARISON --- */
-        .quality-compare {
-            padding: 100px 5%;
-            text-align: center;
-            background: #fff;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .compare-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .compare-item {
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .compare-item img {
-            width: 100%;
-            display: block;
-        }
-
-        .compare-label {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 5px 15px;
-            font-size: 12px;
-            font-weight: 700;
-        }
-
-
-
-        /* --- DELIVERY BANNER --- */
-        .delivery-banner {
-            background: var(--primary);
-            color: white;
-            padding: 50px 5%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 30px;
-            text-align: center;
-        }
-
-        .delivery-item i {
-            font-size: 30px;
-            color: var(--accent);
-            margin-bottom: 15px;
-        }
-
-        /* --- CTA SECTION --- */
-        .action-cta {
-            background: var(--primary);
-            padding: 60px 30px;
-            border-radius: 30px;
-            text-align: center;
-            color: white;
-            width: 100%;
-        }
-
-        /* --- BUTTONS --- */
-        .btn-pro {
-            background: var(--primary);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            display: inline-block;
-            transition: 0.4s;
-        }
-
-        /* --- FLOATING ELEMENTS (No Change) --- */
-        .bg-floating-objects,
-        .floating-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .floating-item,
-        .obj {
-            position: absolute;
-            opacity: 0.05;
-            color: var(--primary);
-        }
-
-        .item-1 {
-            font-size: 150px;
-            top: 10%;
-            left: -5%;
-            animation: drift 25s infinite linear;
-        }
-
-        .item-2 {
-            font-size: 100px;
-            bottom: 10%;
-            right: -5%;
-            animation: drift 30s infinite linear reverse;
-        }
-
-        @keyframes drift {
-
-            0%,
-            100% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-
-            50% {
-                transform: translate(30px, 50px) rotate(10deg);
-            }
-        }
-
-        @keyframes spin {
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* --- WHATSAPP FLOAT --- */
-        /* .wa-float {
-            position: fixed; bottom: 20px; right: 20px;
-            background: #25D366; width: 60px; height: 60px;
-            border-radius: 50%; display: flex; align-items: center;
-            justify-content: center; color: white; font-size: 30px;
-            z-index: 2000; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }*/
-
-        footer {
-            padding: 40px 5%;
-            text-align: center;
-            border-top: 1px solid var(--border);
-            font-size: 12px;
-            color: #94a3b8;
-            background: white;
-        }
-
-        .wa-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #000;
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 30px;
-            z-index: 2000;
-            text-decoration: none;
-            transition: 0.3s;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .wa-float:hover {
-            background: #25D366;
-            transform: scale(1.1) rotate(10deg);
-        }
-
-
-        /* --- TV & LARGE SCREEN FIX --- */
-        @media (min-width: 1800px) {
-
-            .hero,
-            .section-padding,
-            .restore-grid,
-            .address-box {
-                max-width: 1600px;
-                margin: 0 auto;
-            }
-        }
-
-        /* --- MOBILE & TABLET FIXES --- */
-        @media (max-width: 1024px) {
-            nav ul {
-                gap: 15px;
-            }
-
-            .hero {
-                gap: 20px;
-            }
-
-        }
-
-        @media (max-width: 768px) {
-            header {
-                height: 70px;
-            }
-
-            nav {
-                display: none;
-            }
-
-            /* Standard Mobile behavior: Hide desktop menu */
-
-
-            .hero-btn {
-                display: flex;
-                justify-content: flex-start;
-                /* desktop pe left */
-            }
-
-            /* mobile pe center */
-            @media(max-width:768px) {
-                .hero-btn {
-                    justify-content: center;
-                }
-            }
-
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                padding-top: 120px;
-                height: auto;
-                min-height: unset;
-            }
-
-            .hero-content p {
-                margin: 0 auto 30px;
-            }
-
-            .restore-grid,
-            .address-box,
-            .compare-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .compare-grid {
-                max-width: 500px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .section-padding {
-                padding: 50px 5%;
-            }
-
-            .action-cta {
-                border-radius: 15px;
-                padding: 40px 20px;
-            }
-
-            .logo-text {
-                font-size: 15px;
-            }
-
-            .logo-icon {
-                padding: 2px 8px;
-            }
-
-            .btn-porsche {
-                padding: 10px 15px;
-                font-size: 12px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .center-title h2 {
-                font-size: 1.5rem;
-            }
-
-            .service-card {
-                padding: 30px 20px;
-            }
-
-            .wa-float {
-                width: 50px;
-                height: 50px;
-                font-size: 25px;
-                bottom: 15px;
-                right: 15px;
-            }
-        }
-    </style>
+    
 </head>
 
 <body class="loading">
 
-    <!-- LOADER (Same as Original) -->
+    <!-- LOADER  -->
     <div id="loader">
         <div class="loader-icons">
             <i class="fas fa-tape"></i>
@@ -1076,18 +69,22 @@
     <div class="bg-floating-objects">
         <i class="fas fa-tape floating-item item-1"></i>
         <i class="fas fa-compact-disc floating-item item-2"></i>
-        <i class="fa-solid fa-camera"></i>
+        <i class="fa-solid fa-camera floating-item item-3"></i>
     </div>
 
 
-
-    <!-- HEADER (Responsive) -->
+    <!-- HEADER -->
     <header>
         <a href="#" class="logo-box">
             <div class="logo-icon">SHIV</div>
             <div class="logo-text">SONU STUDIO</div>
         </a>
-        <nav>
+
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <nav id="navMenu">
             <ul>
                 <li><a href="#warning">DANGER</a></li>
                 <li><a href="#restore">RESTORATION</a></li>
@@ -1095,12 +92,14 @@
                 <li><a href="#services">SERVICES</a></li>
                 <li><a href="#process">WORKFLOW</a></li>
                 <li><a href="#faq">FAQ</a></li>
+                <!-- <li class="mobile-only"><a href="https://wa.me/919999339371" style="color:var(--accent)">GET QUOTE</a></li> -->
             </ul>
         </nav>
-        <a href="https://wa.me/919999339371" class="btn-porsche">GET QUOTE</a>
+
+        <a href="https://wa.me/919999339371" class="btn-porsche desktop-only">GET QUOTE</a>
     </header>
 
-    <!-- HERO (Responsive) -->
+    <!-- HERO  -->
     <section class="hero">
         <div class="hero-content" data-aos="fade-right">
             <h1>LEGACY <br><span>REMASTERED</span></h1>
@@ -1126,59 +125,40 @@
     <section class="section-padding" id="warning">
         <div class="center-title" data-aos="fade-up">
             <h2 style="color:var(--danger);">Savdhan! Aapki Yaadein Khatre mein hain</h2>
-            <p style="margin-top:10px; font-weight: 600; text-transform:none;">Purani tapes ko digital banwana kyun
+            <p style="margin-top:10px; font-weight: 600;">Purani tapes ko digital banwana kyun
                 zaroori hai?</p>
         </div>
         <div class="grid-3">
             <div class="service-card" data-aos="fade-up">
                 <i class="fas fa-biohazard"></i>
                 <h3>Fungus Ka Khatra</h3>
-                <p style="text-transform:none;">Tapes par fungus lagne se wo andar se chipak jati hain aur hamesha ke
+                <p>Tapes par fungus lagne se wo andar se chipak jati hain aur hamesha ke
                     liye kharab ho jati hain.</p>
             </div>
             <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                 <i class="fas fa-wave-square"></i>
                 <h3>Magnet Loss</h3>
-                <p style="text-transform:none;">Har saal tapes ki magnetic quality kam hoti hai, jisse video dhundhli
+                <p>Har saal tapes ki magnetic quality kam hoti hai, jisse video dhundhli
                     hone lagti hai.</p>
             </div>
             <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                 <i class="fas fa-search-minus"></i>
                 <h3>VCR Milna Mushkil</h3>
-                <p style="text-transform:none;">VHS Player aur Handycam ab market mein nahi milte. Digital hona hi
+                <p>VHS Player aur Handycam ab market mein nahi milte. Digital hona hi
                     ekmatra rasta hai.</p>
             </div>
         </div>
     </section>
 
-    <!-- COMPARE SECTION (Responsive) -->
-    <!-- <section class="section-padding"
-        style="background: #fff; border-bottom: 1px solid var(--border); text-align: center;">
-        <div data-aos="fade-up">
-            <h2>The Benchmark of Clarity</h2>
-            <p style="color:#64748b; text-transform:none; margin-top: 10px;">Hum Video Stabilizers (TBC) technology use
-                karte hain.</p>
-        </div>
-        <div class="compare-grid" data-aos="zoom-in">
-            <div class="compare-item">
-                <img src="https://images.unsplash.com/photo-1590650153855-d9e808231d41?auto=format&fit=crop&w=600&q=80"
-                    style="filter: blur(2px) contrast(0.8) grayscale(0.5);">
-                <div class="compare-label">ANALOGUE SIGNAL (BEFORE)</div>
-            </div>
-            <div class="compare-item">
-                <img src="https://images.unsplash.com/photo-1590650153855-d9e808231d41?auto=format&fit=crop&w=600&q=80"
-                    style="filter: contrast(1.1) brightness(1.1);">
-                <div class="compare-label" style="background:var(--accent);">DIGITAL MASTER (AFTER)</div>
-            </div>
-        </div>
-    </section> -->
+
+  
 
 
     <!-- Quality Comparison Section -->
     <section class="quality-compare">
-        <div data-aos="fade-up">
+        <div class="center-title" data-aos="fade-up">
             <h2>The Benchmark of Clarity</h2>
-            <p style="text-transform:none; margin-top:10px; color:#64748b;">Hum TBC (Time Base Correction) technology
+            <p style=" margin-top:10px; color:#64748b;">Hum TBC (Time Base Correction) technology
                 use karte hain taaki purani tape bhi saaf dikhe.</p>
         </div>
         <div class="compare-grid" data-aos="zoom-in">
@@ -1195,8 +175,58 @@
         </div>
     </section>
 
+    <!-- WHY CHOOSE US  -->
 
-    <!-- RESTORATION LAB (Responsive) -->
+    <section id="why-choose" style="width:100%; background:#fff;">
+        <div class="section-padding">
+            <div class="center-title" data-aos="fade-up">
+                <h2>Why Choose Shiv Sonu Studio?</h2>
+                <p style=" margin-top:10px; color:#64748b;">India’s most trusted experts for family
+                    memories.</p>
+            </div>
+            <div class="grid-3">
+                <div class="service-card" data-aos="fade-up">
+                    <i class="fas fa-user-shield"></i>
+                    <h3>100% Privacy</h3>
+                    <p>Your personal family videos are handled with absolute
+                        confidentiality. We respect your memories like our own.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-microchip"></i>
+                    <h3>TBC Technology</h3>
+                    <p>We use Time Base Correctors to stabilize shaky footage and ensure
+                        the highest possible digital clarity.</p>
+
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-broom"></i>
+                    <h3>Fungus Cleaning</h3>
+                    <p>Specialized chemical treatment to remove mold and fungus without
+                        damaging the magnetic layer.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-history"></i>
+                    <h3>25+ Years Experience</h3>
+                    <p>Decades of expertise in handling delicate magnetic tapes and optical discs with precision.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-cloud-download-alt"></i>
+                    <h3>Digital Delivery</h3>
+                    <p>Access your converted files via secure Google Drive links or get them in a physical Pendrive/Hard
+                        Drive.</p>
+                </div>
+                <!-- <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <h3>No Hidden Fees</h3>
+                    <p>Transparent pricing based on actual footage. You only pay for what
+                        we successfully convert for you.</p>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+   
+    <!-- RESTORATION LAB  -->
     <section class="restoration-lab" id="restore">
         <div class="restore-grid">
             <div data-aos="fade-right">
@@ -1215,7 +245,7 @@
         </div>
     </section>
 
-    <!-- ADDRESS BOX (Responsive) -->
+    <!-- ADDRESS BOX  -->
     <section class="address-box" id="address">
         <div data-aos="fade-right">
             <h2>Courier Your Media <br>To Our Studio</h2>
@@ -1235,55 +265,56 @@
 
     <!-- SERVICES -->
     <section class="section-padding" id="services" style="text-align: center;">
-        <h2 style="margin-bottom: 50px;">Service Portfolio</h2>
+        <h2 class="center-title" style="margin-bottom: 50px;">Service Portfolio</h2>
         <div class="grid-3">
             <div class="service-card" data-aos="fade-up">
                 <i class="fas fa-tape"></i>
                 <h3>VHS & Cassette</h3>
-                <p style="text-transform:none;">High-quality digital transfer to preserve your memories forever.</p>
+                <p>High-quality digital transfer to preserve your memories forever.</p>
             </div>
             <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                 <i class="fas fa-video"></i>
                 <h3>MiniDV & Hi8</h3>
-                <p style="text-transform:none;">Preserve your camcorder memories with studio-grade digital transfer.</p>
+                <p>Preserve your camcorder memories with studio-grade digital transfer.</p>
             </div>
             <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                 <i class="fas fa-compact-disc"></i>
                 <h3>CD/DVD Conversion</h3>
-                <p style="text-transform:none;">Preserve your discs with high-quality digital conversion.</p>
+                <p>Preserve your discs with high-quality digital conversion.</p>
             </div>
         </div>
     </section>
 
     <!-- WORKFLOW -->
     <section id="process" style="padding: 80px 5%; text-align: center; background:var(--bg-light);">
-        <h2 style="margin-bottom: 50px;">The Workflow</h2>
+        <h2 class="center-title" style="margin-bottom: 50px;">The Workflow</h2>
         <div class="grid-3">
             <div data-aos="fade-up">
-                <h1 style="opacity: 0.1; font-size: 50px; font-weight: 900;">01</h1>
-                <h4>Send Media</h4>
-                <p style="font-size:14px; color:#64748b; text-transform:none;">Pack & courier to Shiv Sonu Studio.</p>
+                <div class="step-number">01</div>
+                <h3>Send Media</h3>
+                <p style=" color:#64748b; ">Pack & courier to Shiv Sonu Studio.</p>
             </div>
             <div data-aos="fade-up" data-aos-delay="100">
-                <h1 style="opacity: 0.1; font-size: 50px; font-weight: 900;">02</h1>
-                <h4>Stabilize</h4>
-                <p style="font-size:14px; color:#64748b; text-transform:none;">Video Stabilizers & Time Base Correction.
+                <div class="step-number">02</div>
+                <h3>Stabilize</h3>
+                <p style=" color:#64748b; ">Video Stabilizers & Time Base Correction.
                 </p>
             </div>
             <div data-aos="fade-up" data-aos-delay="200">
-                <h1 style="opacity: 0.1; font-size: 50px; font-weight: 900;">03</h1>
-                <h4>Deliver</h4>
-                <p style="font-size:14px; color:#64748b; text-transform:none;">Data sent via Link or Pen Drive +
+                <div class="step-number">03</div>
+                <h3>Deliver</h3>
+                <p style=" color:#64748b; ">Data sent via Link or Pen Drive +
                     Originals back.</p>
             </div>
         </div>
     </section>
 
-    <!-- CUSTOMER REVIEWS (Moving + Mouse Drag + Touch) -->
+    <!-- CUSTOMER REVIEWS  -->
     <section class="section-padding" id="reviews">
         <div class="center-title" data-aos="fade-up">
             <h2>Customer Reviews</h2>
-            <p style="margin-top:10px; color:#64748b; text-transform:none;">Trusted by over 5,000+ happy customers across India.</p>
+            <p style="margin-top:10px; color:#64748b; ">Trusted by over 5,000+ happy customers
+                across India.</p>
         </div>
 
         <div class="reviews-wrapper">
@@ -1326,15 +357,15 @@
 
     <!-- DELIVERY -->
     <div class="delivery-banner">
-        <div class="delivery-item"><i class="fas fa-play-circle" ></i>
-            <h4 >1000+ Videos Converted</h4>
+        <div class="delivery-item"><i class="fas fa-play-circle"></i>
+            <h4>1000+ Videos Converted</h4>
         </div>
         <div class="delivery-item">
-            <i class="fas fa-user-shield" ></i>
-                <h4 >100% Safe Handling</h4>
+            <i class="fas fa-user-shield"></i>
+            <h4>100% Safe Handling</h4>
         </div>
         <div class="delivery-item"><i class="fas fa-tags"></i>
-            <h4 >Affordable Pricing</h4>
+            <h4>Affordable Pricing</h4>
         </div>
         <div class="delivery-item"><i class="fas fa-undo"></i>
             <h4>SAFE RETURN</h4>
@@ -1414,7 +445,7 @@
     <section class="section-padding" style="text-align: center;">
         <div class="action-cta" data-aos="zoom-in">
             <h2 style="color: white; margin-bottom: 15px;">Ready to digitize your memories?</h2>
-            <p style="margin-bottom: 30px; opacity: 0.9; text-transform:none;">Trusted by 5,000+ families across India.
+            <p style="margin-bottom: 30px; opacity: 0.9; ">Trusted by 5,000+ families across India.
             </p>
             <a href="https://wa.me/9999339371" class="btn-pro" style="background: white; color: var(--primary);">Get a
                 Free Quote Now</a>
@@ -1436,91 +467,10 @@
             class="fab fa-whatsapp"></i></a>
 
 
-    <!-- SCRIPTS (Same as Original) -->
+    <!-- SCRIPTS  -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true });
-
-        // Loader
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                const loader = document.getElementById('loader');
-                if (loader) { loader.style.opacity = '0'; loader.style.visibility = 'hidden'; }
-                document.body.classList.remove('loading');
-            }, 2000);
-        });
-
-        // --- NEW IMPROVED REVIEW SLIDER LOGIC ---
-        const slider = document.getElementById('reviewSlider');
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-        let autoScrollActive = true;
-        const autoScrollSpeed = 0.8; // Slow smooth movement
-
-        // Clone content for infinite loop effect
-        const initialContent = slider.innerHTML;
-        slider.innerHTML += initialContent;
-
-        // Auto Scroll Loop
-        function autoScroll() {
-            if (autoScrollActive && !isDown) {
-                slider.scrollLeft += autoScrollSpeed;
-                // Reset when half way (since content is duplicated)
-                if (slider.scrollLeft >= slider.scrollWidth / 2) {
-                    slider.scrollLeft = 0;
-                }
-            }
-            requestAnimationFrame(autoScroll);
-        }
-        autoScroll();
-
-        // Mouse Down (Start Drag)
-        slider.addEventListener('mousedown', (e) => {
-            isDown = true;
-            slider.classList.add('active');
-            startX = e.pageX - slider.offsetLeft;
-            scrollLeft = slider.scrollLeft;
-            autoScrollActive = false; // Stop auto scroll
-        });
-
-        // Mouse Leave (Stop Drag)
-        slider.addEventListener('mouseleave', () => {
-            isDown = false;
-            autoScrollActive = true; // Resume auto scroll
-        });
-
-        // Mouse Up (Stop Drag)
-        slider.addEventListener('mouseup', () => {
-            isDown = false;
-            autoScrollActive = true; // Resume auto scroll
-        });
-
-        // Mouse Move (Dragging)
-        slider.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault(); // Stop text selection
-            const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX) * 2; // Drag speed
-            slider.scrollLeft = scrollLeft - walk;
-        });
-
-        // Touch Support for Mobile
-        slider.addEventListener('touchstart', () => {
-            isDown = true;
-            autoScrollActive = false;
-        });
-
-        slider.addEventListener('touchend', () => {
-            isDown = false;
-            autoScrollActive = true;
-        });
-
-        slider.addEventListener('touchmove', (e) => {
-            // Touch move handled by browser naturally, but we stop auto scroll
-            autoScrollActive = false;
-        });
-    </script>
+    <script src="script.js"></script>
+    
 </body>
 
 </html>
